@@ -37,13 +37,19 @@ const fetchPokemon = () => {
     // displayPokemon(i);
 }
 
-const displayPokemon = (poke) => {
-    const outputHTML = poke.map((pokemon) =>
+const displayPokemon = (pokemonList) => {
+    const outputHTML = pokemonList.map((pokemon) =>
         `
-    <li>
-        <img src="${pokemon.sprite_default}" />
-        <h2>${pokemon.id}. ${pokemon.name}</h2>
-        <p>Type: ${pokemon.type}</p>
+    <li class="card">
+        <div class="flip-card">
+            <div class="flip-card-front">
+                <img class="card-image" src="${pokemon.sprite_default}" />
+            </div>
+            <div class="flip-card-back">
+                <h2 class="card-title">${pokemon.id}. ${pokemon.name}</h2>
+                <p class="card-subtitle">Type: ${pokemon.type}</p>
+            </div>
+        </div>
     </li>
     `
     ).join('');
@@ -51,3 +57,6 @@ const displayPokemon = (poke) => {
 }
 
 fetchPokemon();
+
+
+
